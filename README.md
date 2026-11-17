@@ -5,7 +5,7 @@ The training script produces versioned quality models. Changes to paths listed i
 ## Run locally
 
 ```sh
-minikube image build -t dsa-p6-app:latest .
+minikube image build -t quality-model:latest .
 kubectl apply -f k8s/
-minikube service dsa-p6-app-service
+minikube service quality-model-service
 ```

@@ -7,7 +7,7 @@ on:
     paths:
       - 'modelos/**'
       - 'treinamento/**'
-      - 'appdsa.py'
+      - 'app.py'
       - 'requirements.txt'
       - 'Dockerfile'
 
@@ -36,10 +36,10 @@ jobs:
           pip install -r requirements.txt
 
       - name: Treinar modelo
-        run: python treinamento/dsa_treina_modelo.py
+        run: python treinamento/treina_modelo.py
 
       - name: Construir imagem Docker com novo modelo
-        run: docker build -t dsa-p6-app:latest .
+        run: docker build -t quality-model:latest .
 
       - name: Validar manifestos Kubernetes
         uses: stefanprodan/kube-tools@v1

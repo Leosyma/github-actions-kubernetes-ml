@@ -7,7 +7,7 @@ kind: Deployment
 # Metadados do Deployment
 metadata:
   # Nome do Deployment
-  name: dsa-p6-app-deployment
+  name: quality-model-deployment
 
 # Especificação do Deployment
 spec:
@@ -18,20 +18,20 @@ spec:
   selector:
     matchLabels:
       # Rótulo usado para selecionar os pods
-      app: dsa-p6-app
+      app: quality-model
 
   # Modelo para criação dos pods
   template:
     metadata:
       labels:
         # Aplica o mesmo rótulo aos pods criados
-        app: dsa-p6-app
+        app: quality-model
 
     spec:
       # Lista de contêineres no pod
       containers:
-      - name: dsa-p6-app-container  # Nome do contêiner
-        image: dsa-p6-app:latest    # Imagem do contêiner 
+      - name: quality-model-container  # Nome do contêiner
+        image: quality-model:latest    # Imagem do contêiner 
         imagePullPolicy: Never      # Não tenta baixar a imagem do Docker Hub
         ports:
         - containerPort: 8501       # Porta exposta pelo contêiner

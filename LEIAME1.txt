@@ -33,13 +33,13 @@ minikube version
 minikube start
 
 # Treine e salve a versão inicial do modelo
-python treinamento/dsa_treina_modelo.py
+python treinamento/treina_modelo.py
 
 # Construa a imagem Docker localmente após treinar o modelo
-docker build -t dsa-p6-app:latest .
+docker build -t quality-model:latest .
 
 # Carregue a imagem Docker para o Minikube
-minikube image load dsa-p6-app:latest
+minikube image load quality-model:latest
 
 # Aplica o manifesto YAML para criar o deployment Kubernetes
 kubectl apply -f k8s/deployment.yaml 
@@ -51,7 +51,7 @@ kubectl apply -f k8s/service.yaml
 kubectl get pods
 
 # Acesse a app via web
-minikube service dsa-p6-app-service
+minikube service quality-model-service
 
 # Configure o Workflow do GitHub Actions conforme mostrado nas aulas.
 
@@ -61,11 +61,11 @@ https://git-scm.com/
 # Abra OUTRO terminal ou prompt, navegue até a pasta com os arquivos e inicialize o repositório Git localmente com os comandos abaixo:
 
 git config --global user.email "aluno@teste.com"
-git config --global user.name "Aluno DSA"
+git config --global user.name "Seu Nome"
 
 git init
 git add .
-git commit -m "Versão inicial do Projeto DSA"
+git commit -m "Versão inicial do projeto"
 
 # Instale o Act na sua máquina para testar o GitHub Actions localmente
 https://nektosact.com/installation/index.html
@@ -90,11 +90,11 @@ act push --container-architecture linux/amd64 (necessário para máquinas com pr
 # Execute os comandos abaixo para atualizar a imagem em tempo real no cluster Kubernetes:
 
 # Carrega a nova imagem no Minikube
-minikube image load dsa-p6-app:latest
+minikube image load quality-model:latest
 
 # Atualiza o deployment no Kubernetes para usar a imagem nova
-# kubectl set image deployment/dsa-p6-app-deployment dsa-p6-app-container=dsa-p6-app:latest
-kubectl rollout restart deployment/dsa-p6-app-deployment
+# kubectl set image deployment/quality-model-deployment quality-model-container=quality-model:latest
+kubectl rollout restart deployment/quality-model-deployment
 
 # Esses passos acima devem ser executados sempre que houver mudança no código de treinamento do modelo e então o Pipeline CI/CD será executado.
 

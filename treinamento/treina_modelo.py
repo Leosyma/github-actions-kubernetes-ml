@@ -51,9 +51,9 @@ modelo_dir = "modelos"
 os.makedirs(modelo_dir, exist_ok=True)
 
 # Backup do modelo anterior, caso exista
-arquivo_final = os.path.join(modelo_dir, "modelo_qualidade_dsa.pkl")
+arquivo_final = os.path.join(modelo_dir, "modelo_qualidade.pkl")
 if os.path.exists(arquivo_final):
-    backup_nome = datetime.now().strftime("modelo_qualidade_dsa_%Y%m%d_%H%M%S.pkl")
+    backup_nome = datetime.now().strftime("modelo_qualidade_%Y%m%d_%H%M%S.pkl")
     os.rename(arquivo_final, os.path.join(modelo_dir, backup_nome))
 
 # Salvar o modelo ajustado sempre com o mesmo nome

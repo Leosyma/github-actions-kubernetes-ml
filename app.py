@@ -6,7 +6,7 @@ import joblib
 import numpy as np
 
 # Carregar o modelo
-modelo_qualidade = joblib.load("modelos/modelo_qualidade_dsa.pkl")
+modelo_qualidade = joblib.load("modelos/modelo_qualidade.pkl")
 
 # Configuração da página do Streamlit
 st.set_page_config(page_title="Training and image validation with GitHub Actions", page_icon=":100:", layout="wide")

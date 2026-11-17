@@ -7,7 +7,7 @@ kind: Service
 # Metadados do Service
 metadata:
   # Nome do Service
-  name: dsa-p6-app-service
+  name: quality-model-service
 
 # Especificação do Service
 spec:
@@ -17,7 +17,7 @@ spec:
   # Seleciona os pods aos quais este Service irá encaminhar o tráfego
   selector:
     # Deve corresponder ao rótulo dos pods do Deployment
-    app: dsa-p6-app
+    app: quality-model
 
   # Configuração das portas do Service
   ports:
